@@ -2,5 +2,6 @@
 title: Contact
 ---
 
-  - Twitter <a href="https://twitter.com/alexandrelucch/" target="_blank">@alexandrelucch</a>
-  - GitHub: <a href="https://github.com/alexandrelucchesi/" target="_blank">/alexandrelucchesi</a>
+  - Twitter [\@alexandrelucch](https://twitter.com/alexandrelucch/){target="_blank"}
+  - GitHub: [/alexandrelucchesi](https://github.com/alexandrelucchesi/){target="_blank"}
+  - Email: alexandrelucchesi [at] gmail [dot] com

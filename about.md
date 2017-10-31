@@ -2,10 +2,10 @@
 title: About
 ---
 
-  > **exotic**
-  >
-  > Someone or something that is foreign and unusual in a specially interesting
-  way.
+**exotic**
+
+  ~ Someone or something that is foreign and unusual in a specially interesting
+    way.
 
 An exotic developer is exactly how I feel as a functional programming enthusiast
 living in a world full of (side-)effects.
@@ -26,8 +26,7 @@ pun intended).
 
 So, for now, I'll just tell you that if you enjoy studying programming
 languages, learning fancy hacks and, once in a while, doing something practical
-with all of that, then you're like me and you're probably going to have some fun
-in this blog!
+with all of that, then you're probably going to like this blog!
 
 Finally, I can't let you go before encouraging you to give this blog a try and
 [subscribe to the mailing list](#). Also, if you find any typos (grammar,
