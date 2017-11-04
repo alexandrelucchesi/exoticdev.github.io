@@ -65,6 +65,10 @@ body {
     font-family: Georgia, serif;
 }
 
+h1 {
+    text-align: center;
+}
+
 h1, h2, h3 {
     line-height: 1.2;
 }
@@ -94,6 +98,10 @@ div#header #navigation a {
 div#header #navigation a:hover,
 div#header #navigation a:focus {
     border-bottom: 2px solid;
+}
+
+div#content {
+    padding-top: 24px;
 }
 
 div#footer {

@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 
-import           Data.Monoid (mappend)
+import           Data.Monoid (mappend, (<>))
 import           Hakyll
 
 -- Custom imports
@@ -12,24 +12,21 @@ import           System.FilePath.Posix (takeBaseName, takeDirectory, (</>))
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
+    match "assets/images/*" $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*" $ do
+    match "assets/css/*" $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["about.md", "contact.md", "404.md"]) $ do
-        --route   $ setExtension "html"
+    match "pages/*" $ do
         route cleanPageRoute
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/default.html" cleanCtx
             >>= relativizeUrls
-            >>= cleanIndexUrls
 
     match "posts/*" $ do
-        --route $ setExtension "html"
         route cleanPostRoute
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
@@ -37,20 +34,18 @@ main = hakyll $ do
             >>= relativizeUrls
 
     create ["archive.html"] $ do
-        --route idRoute
         route cleanPageRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let archiveCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
-                    defaultContext
+                    constField "title" "Blog archives" `mappend`
+                    cleanCtx
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
-                >>= cleanIndexUrls
 
 
     match "index.html" $ do
@@ -59,14 +54,14 @@ main = hakyll $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
-                    defaultContext
+                    constField "isHomePage" "True" `mappend`
+                    {-constField "title" "Home"                `mappend`-}
+                    cleanCtx
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
-                >>= cleanIndexUrls
 
     match "templates/*" $ compile templateCompiler
 
@@ -77,7 +72,7 @@ cleanPageRoute = customRoute createIndexRoute
   where
     createIndexRoute identifier =
         let p = toFilePath identifier
-         in takeDirectory p
+         in drop 5 (takeDirectory p) -- Drops "pages" prefix
               </> takeBaseName p
               </> "index.html"
 
@@ -86,21 +81,36 @@ cleanPostRoute = customRoute createIndexRoute
   where
     createIndexRoute identifier =
         let p = toFilePath identifier
-         in drop 5 (takeDirectory p) -- Drops "posts"
+         in drop 5 (takeDirectory p) -- Drops "posts" prefix
               </> drop 11 (takeBaseName p) -- Drops "YYYY-MM-DD-"
               </> "index.html"
 
-cleanIndexUrls :: Item String -> Compiler (Item String)
-cleanIndexUrls = return . fmap (withUrls clean)
+cleanUrlField :: String -> Context String
+cleanUrlField key = field key $
+    fmap (maybe mempty clean) . getRoute . itemIdentifier
   where
-    idx = "index.html"
+      clean = dropIndex . toUrl
 
-    clean url
-      | idx `isSuffixOf` url = take (length url - length idx) url
-      | otherwise            = url
+      dropIndex url
+        | not (isExternal url) && "index.html" `isSuffixOf` url =
+            take (length url - 10) url
+        | otherwise = url
+
+-- IMPORTANT: Without trailing slash!
+siteUrl :: String
+siteUrl = "https://exoticdev.com"
+
+-- TODO: Create proper development/production settings!
+siteIsProduction :: Bool
+siteIsProduction = False
+
+cleanCtx :: Context String
+cleanCtx = cleanUrlField "url" -- Overrides the default "url".
+    `mappend` constField "siteUrl" siteUrl
+    `mappend` boolField "siteIsProduction" (const siteIsProduction)
+    `mappend` defaultContext
 
 postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
-
+postCtx = dateField "date" "%B %e, %Y"
+    `mappend` constField "author" "Alexandre Lucchesi"
+    `mappend` cleanCtx

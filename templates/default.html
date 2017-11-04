@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        $if(siteIsProduction)$
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108999052-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-108999052-1');
+        </script>
+        $endif$
+
         <meta charset="utf-8">
+
+        $if(isHomePage)$
+        <title>ExoticDev</title>
+        $else$
+        <title>ExoticDev - $title$</title>
+        $endif$
+
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
         <meta name="generator" content="hakyll">
         <meta name="author" content="Alexandre Lucchesi">
-
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="canonical" href="https://exoticdev.com/">
-        
-        <title>exotic dev - $title$</title>
-        <link rel="stylesheet" type="text/css" href="/css/default.css">
+        <link rel="canonical" href="$siteUrl$$url$">
+
+        <link rel="stylesheet" type="text/css" href="/assets/css/default.css">
 
         <!-- TODO: Add Open Graph meta tags -->
     </head>
     <body>
         <div id="header">
             <div id="logo">
-                <a href="/">{ exotic dev }</a>
+                <a href="/">
+                    <img src="/assets/images/exoticdev-logo.png" alt="ExoticDev">
+                </a>
+                <!-- <a href="/">{ exotic dev }</a> -->
             </div>
             <div id="navigation">
                 <a href="/">Home</a>
