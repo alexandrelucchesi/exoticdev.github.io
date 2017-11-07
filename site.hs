@@ -111,6 +111,7 @@ cleanCtx = cleanUrlField "url" -- Overrides the default "url".
     `mappend` defaultContext
 
 postCtx :: Context String
-postCtx = dateField "date" "%B %e, %Y"
+postCtx = dateField "date" "%b %e, %Y"
     `mappend` constField "author" "Alexandre Lucchesi"
+    `mappend` constField "twitter" "@alexandrelucchesi"
     `mappend` cleanCtx

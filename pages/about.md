@@ -2,7 +2,7 @@
 title: About
 ---
 
-**exotic**
+**Exotic**
 
   ~ Someone or something that is foreign and unusual in an especially
   interesting way.
@@ -30,8 +30,8 @@ languages, learning fancy hacks and, once in a while, doing something practical
 with all of that, then you're probably going to like this blog!
 
 I can't let you go before further encouraging you to give this blog a try and
-[subscribe to the mailing list](#). Also, if you find any typos (grammar,
-spelling, language misuse, etc), they are very welcome. 🙃
+[subscribe to the mailing list](/contact#subscribe).  Also, if you find any
+typos (grammar, spelling, language misuse, etc), they are very welcome. 🙃
 
 Hope you have a good time here...
 

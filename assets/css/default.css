@@ -58,11 +58,12 @@ div.info {
 body {
     margin: 40px auto;
     max-width: 650px;
-    line-height: 1.4;
+    line-height: 1.6;
     font-size: 18px;
     color: #444;
     padding: 0 10px;
-    font-family: Georgia, serif;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
 }
 
 h1 {
@@ -70,15 +71,13 @@ h1 {
 }
 
 h1, h2, h3 {
-    line-height: 1.2;
+    line-height: 1.4;
+    font-family: Lato, sans-serif;
+    font-weight: 700;
 }
 
 div#logo a {
-    color: #444;
     float: left;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
 }
 
 div#header #navigation {
@@ -88,11 +87,12 @@ div#header #navigation {
 div#header #navigation a {
     color: #444;
     font-size: 18px;
-    font-weight: bold;
-    margin-left: 12px;
+    font-family: Raleway, sans-serif;
+    font-weight: 700;
+    margin-left: 18px;
     text-decoration: none;
-    padding: 5px 0px;
-    text-transform: lowercase;
+    text-transform: uppercase;
+    padding: 6px 0px;
 }
 
 div#header #navigation a:hover,
@@ -101,19 +101,21 @@ div#header #navigation a:focus {
 }
 
 div#content {
-    padding-top: 24px;
+    padding: 36px 0px 24px 0px;
 }
 
 div#footer {
     font-size: 12px;
-    /*margin-top: 30px;*/
     padding: 10px 0px 10px 0px;
     border-top: 2px solid #808080;
-    text-align: right;
+    text-align: center;
 }
 
 div.info {
-    color: #777;
-    font-size: 16px;
-    font-style: italic;
+    color: #999;
+    font-size: 14px;
+    font-weight: 200;
+    /*font-style: italic;*/
+    text-align: center;
+    text-transform: uppercase;
 }

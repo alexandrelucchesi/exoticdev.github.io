@@ -1,8 +1,12 @@
 <div class="info">
-    Posted on $date$
     $if(author)$
-        by $author$
+        $if(twitter)$
+            By <a href="https://twitter.com/$twitter$" target="_blank">$author$</a>
+        $else$
+            By $author$
+        $endif$
     $endif$
+    on $date$
 </div>
 
 $body$
