@@ -1,69 +1,11 @@
-/*body {
-    color: black;
-    font-size: 16px;
-    margin: 0px auto 0px auto;
-    width: 600px;
-}
-
-div#header {
-    border-bottom: 2px solid black;
-    margin-bottom: 30px;
-    padding: 12px 0px 12px 0px;
-}
-
-div#logo a {
-    color: black;
-    float: left;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-div#header #navigation {
-    text-align: right;
-}
-
-div#header #navigation a {
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 12px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-div#footer {
-    border-top: solid 2px black;
-    color: #555;
-    font-size: 12px;
-    margin-top: 30px;
-    padding: 12px 0px 12px 0px;
-    text-align: right;
-}
-
-h1 {
-    font-size: 24px;
-}
-
-h2 {
-    font-size: 20px;
-}
-
-div.info {
-    color: #555;
-    font-size: 14px;
-    font-style: italic;
-}*/
-
 body {
-    margin: 40px auto;
+    margin: 0px auto;
     max-width: 650px;
     line-height: 1.6;
     font-size: 18px;
     color: #444;
     padding: 0 10px;
-    font-family: "Noto Sans", sans-serif;
-    font-weight: 400;
+    font-family: Georgia, serif;
 }
 
 h1 {
@@ -72,50 +14,64 @@ h1 {
 
 h1, h2, h3 {
     line-height: 1.4;
-    font-family: Lato, sans-serif;
-    font-weight: 700;
+    font-family: Georgia, sans-serif;
 }
 
-div#logo a {
-    float: left;
+div#header {
+    text-align: center;
+}
+
+div#header #logo {
+    padding: 32px 0;
 }
 
 div#header #navigation {
-    text-align: right;
+    border-top: 1px dotted #444;
+    border-bottom: 1px dotted #444;
+    padding: 6px 0;
 }
 
 div#header #navigation a {
     color: #444;
     font-size: 18px;
-    font-family: Raleway, sans-serif;
-    font-weight: 700;
-    margin-left: 18px;
+    font-family: Helvetica, sans-serif;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 6px 0px;
+    padding: 6px 12px;
 }
 
 div#header #navigation a:hover,
-div#header #navigation a:focus {
-    border-bottom: 2px solid;
+div#header #navigation a:focus,
+div#header #navigation a.active {
+    font-style: italic;
 }
 
 div#content {
-    padding: 36px 0px 24px 0px;
+    padding: 24px 0px 24px 0px;
 }
 
 div#footer {
     font-size: 12px;
     padding: 10px 0px 10px 0px;
-    border-top: 2px solid #808080;
+    border-top: 1px solid #444;
     text-align: center;
 }
 
 div.info {
-    color: #999;
+    color: #888;
     font-size: 14px;
-    font-weight: 200;
-    /*font-style: italic;*/
+    font-family: Helvetica, sans-serif;
     text-align: center;
     text-transform: uppercase;
 }
+
+div.info a {
+    color: #444;
+    text-decoration: none;
+}
+
+div.info a:hover,
+div.info a:focus {
+    color: #000;
+}
+

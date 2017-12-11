@@ -1,5 +1,6 @@
 ---
 title: About
+isAbout: True
 ---
 
 **Exotic**
@@ -12,8 +13,8 @@ in a world full of (side-)effects.
 
 I don't know about the place you live, but here in Brazil everything is still so
 object-oriented... I wonder if it has something to do with our colonization
-process, you know, all that imperative culture brought by our fellow Portuguese
-conquerors...
+process, you know, all that "empiretive" culture brought by our fellow
+Portuguese conquerors...
 
 Jokes apart, this blog is an old plan that I've decided to put in practice so
 that I can share my findings and opinions on software development, with strong
@@ -36,3 +37,5 @@ typos (grammar, spelling, language misuse, etc), they are very welcome. 🙃
 Hope you have a good time here...
 
 See you around, exotic fella!
+
+-- Alexandre Lucchesi

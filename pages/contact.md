@@ -1,5 +1,6 @@
 ---
 title: Contact
+isContact: True
 ---
 
 ## Get in touch
@@ -10,7 +11,7 @@ title: Contact
 
 ## Subscribe to the mailing list {id=subscribe}
 
-Please, inform your email below in order to receive all the updates.
+Please, inform your email below in order to receive content updates.
 
 <!-- Begin MailChimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">

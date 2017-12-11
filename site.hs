@@ -33,18 +33,19 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
+    create ["blog.html"] $ do
         route cleanPageRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
-            let archiveCtx =
+            let blogCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Blog archives" `mappend`
+                    constField "title" "Blog" `mappend`
+                    constField "isBlog" "True" `mappend`
                     cleanCtx
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/blog.html" blogCtx
+                >>= loadAndApplyTemplate "templates/default.html" blogCtx
                 >>= relativizeUrls
 
 
@@ -55,13 +56,28 @@ main = hakyll $ do
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "isHomePage" "True" `mappend`
-                    {-constField "title" "Home"                `mappend`-}
                     cleanCtx
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
+
+    create ["sitemap.xml"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "posts/*"
+            pages <- loadAll "pages/*"
+            let allPosts = return (pages ++ posts)
+                sitemapCtx = mconcat
+                    [ listField "entries" cleanCtx allPosts
+                    , constField "siteUrl" siteUrl
+                    , defaultContext ]
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
+                >>= relativizeUrls
+                -- >>= cleanIndexHtmls
 
     match "templates/*" $ compile templateCompiler
 
@@ -113,5 +129,6 @@ cleanCtx = cleanUrlField "url" -- Overrides the default "url".
 postCtx :: Context String
 postCtx = dateField "date" "%b %e, %Y"
     `mappend` constField "author" "Alexandre Lucchesi"
-    `mappend` constField "twitter" "@alexandrelucchesi"
+    `mappend` constField "twitter" "alexandrelucch"
+    `mappend` constField "isBlog" "True"
     `mappend` cleanCtx

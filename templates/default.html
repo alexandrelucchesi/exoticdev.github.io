@@ -18,7 +18,7 @@
         $if(isHomePage)$
         <title>ExoticDev</title>
         $else$
-        <title>ExoticDev - $title$</title>
+        <title>$title$ - ExoticDev</title>
         $endif$
 
         <link rel="icon" type="image/png" href="/assets/images/favicon.png">
@@ -46,10 +46,9 @@
                 <!-- <a href="/">{ exotic dev }</a> -->
             </div>
             <div id="navigation">
-                <a href="/">Home</a>
-                <a href="/about/">About</a>
-                <a href="/contact/">Contact</a>
-                <a href="/archive/">Archive</a>
+                <a $if(isBlog)$class="active"$endif$ href="/blog/">Blog</a>
+                <a $if(isAbout)$class="active"$endif$ href="/about/">About</a>
+                <a $if(isContact)$class="active"$endif$ href="/contact/">Contact</a>
             </div>
         </div>
 
