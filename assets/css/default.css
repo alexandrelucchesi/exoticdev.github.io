@@ -32,7 +32,6 @@ div#header #navigation {
 }
 
 div#header #navigation .menu-item {
-    width: 120px;
     display: inline-block;
 }
 
@@ -84,5 +83,11 @@ div#footer {
     padding: 10px 0px 10px 0px;
     border-top: 1px solid #444;
     text-align: center;
+}
+
+@media only screen and (min-width: 360px) {
+    div#header #navigation .menu-item {
+        width: 120px;
+    }
 }
 
