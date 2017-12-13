@@ -33,6 +33,7 @@ div#header #navigation {
 
 div#header #navigation .menu-item {
     width: 120px;
+    display: inline-block;
 }
 
 div#header #navigation a {
