@@ -46,9 +46,15 @@
                 <!-- <a href="/">{ exotic dev }</a> -->
             </div>
             <div id="navigation">
-                <a $if(isBlog)$class="active"$endif$ href="/blog/">Blog</a>
-                <a $if(isAbout)$class="active"$endif$ href="/about/">About</a>
-                <a $if(isContact)$class="active"$endif$ href="/contact/">Contact</a>
+                <div class="menu-item">
+                    <a $if(isBlog)$class="active"$endif$ href="/blog">Blog</a>
+                </div>
+                <div class="menu-item">
+                    <a $if(isAbout)$class="active"$endif$ href="/about">About</a>
+                </div>
+                <div class="menu-item">
+                    <a $if(isContact)$class="active"$endif$ href="/contact">Contact</a>
+                </div>
             </div>
         </div>
 

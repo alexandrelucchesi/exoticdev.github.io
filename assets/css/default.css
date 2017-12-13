@@ -31,6 +31,10 @@ div#header #navigation {
     padding: 6px 0;
 }
 
+div#header #navigation .menu-item {
+    width: 120px;
+}
+
 div#header #navigation a {
     color: #444;
     font-size: 18px;
@@ -44,17 +48,6 @@ div#header #navigation a:hover,
 div#header #navigation a:focus,
 div#header #navigation a.active {
     font-style: italic;
-}
-
-div#content {
-    padding: 24px 0px 24px 0px;
-}
-
-div#footer {
-    font-size: 12px;
-    padding: 10px 0px 10px 0px;
-    border-top: 1px solid #444;
-    text-align: center;
 }
 
 div.info {
@@ -73,5 +66,22 @@ div.info a {
 div.info a:hover,
 div.info a:focus {
     color: #000;
+}
+
+div#content {
+    padding: 24px 0px;
+}
+
+div#comments {
+    margin-top: 48px;
+    border-top: 1px solid #444;
+    padding-top: 24px;
+}
+
+div#footer {
+    font-size: 12px;
+    padding: 10px 0px 10px 0px;
+    border-top: 1px solid #444;
+    text-align: center;
 }
 

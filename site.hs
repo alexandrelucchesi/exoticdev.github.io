@@ -108,8 +108,8 @@ cleanUrlField key = field key $
       clean = dropIndex . toUrl
 
       dropIndex url
-        | not (isExternal url) && "index.html" `isSuffixOf` url =
-            take (length url - 10) url
+        | not (isExternal url) && "/index.html" `isSuffixOf` url =
+            take (length url - 11) url
         | otherwise = url
 
 -- IMPORTANT: Without trailing slash!
