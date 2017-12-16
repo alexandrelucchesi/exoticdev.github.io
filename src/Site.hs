@@ -8,17 +8,22 @@ import           Hakyll
 import           Data.List (isSuffixOf)
 import qualified Data.Set as S (fromList)
 import           System.FilePath.Posix (takeBaseName, takeDirectory, (</>))
-import           Text.Pandoc.Options (Extension(..), writerExtensions, readerExtensions)
+import           Text.Pandoc.Options ( Extension(..) , readerExtensions)
+
+import Site.TableOfContents (tableOfContents)
 
 
 --------------------------------------------------------------------------------
-compiler :: Compiler (Item String) 
-compiler = pandocCompilerWith readerOpts defaultHakyllWriterOptions
+compiler :: Compiler (Item String)
+compiler = pandocCompilerWithTransform readerOpts writerOpts
+             (tableOfContents "left")
   where
-      readerOpts = 
+      readerOpts =
           let defaultExts = readerExtensions defaultHakyllReaderOptions
               customExts = defaultExts <> S.fromList [Ext_emoji]
            in defaultHakyllReaderOptions { readerExtensions = customExts }
+
+      writerOpts = defaultHakyllWriterOptions
 
 main :: IO ()
 main = hakyll $ do

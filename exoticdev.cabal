@@ -1,7 +1,7 @@
 name:                exoticdev
 version:             0.1.0.0
--- synopsis:
--- description:
+synopsis:            Personal Blog
+description:         Personal Blog
 homepage:            https://exoticdev.com/
 license:             BSD3
 license-file:        LICENSE
@@ -14,12 +14,16 @@ extra-source-files:  README.md
 cabal-version:       >=1.10
 
 executable exoticdev
-  main-is:             site.hs
+  hs-source-dirs:      src/
+  main-is:             Site.hs
+  other-modules:       Site.TableOfContents
   default-language:    Haskell2010
-  ghc-options:         -threaded
+  ghc-options:         -Wall -threaded
   build-depends:       base >= 4.7 && < 5
                      , hakyll
                        -- Custom dependencies
+                     , blaze-html
                      , filepath
                      , pandoc
+                     , pandoc-types
                      , containers
