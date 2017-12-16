@@ -6,10 +6,20 @@ import           Hakyll
 
 -- Custom imports
 import           Data.List (isSuffixOf)
+import qualified Data.Set as S (fromList)
 import           System.FilePath.Posix (takeBaseName, takeDirectory, (</>))
+import           Text.Pandoc.Options (Extension(..), writerExtensions, readerExtensions)
 
 
 --------------------------------------------------------------------------------
+compiler :: Compiler (Item String) 
+compiler = pandocCompilerWith readerOpts defaultHakyllWriterOptions
+  where
+      readerOpts = 
+          let defaultExts = readerExtensions defaultHakyllReaderOptions
+              customExts = defaultExts <> S.fromList [Ext_emoji]
+           in defaultHakyllReaderOptions { readerExtensions = customExts }
+
 main :: IO ()
 main = hakyll $ do
     match "assets/images/*" $ do
@@ -22,13 +32,13 @@ main = hakyll $ do
 
     match "pages/*" $ do
         route cleanPageRoute
-        compile $ pandocCompiler
+        compile $ compiler
             >>= loadAndApplyTemplate "templates/default.html" cleanCtx
             >>= relativizeUrls
 
     match "posts/*" $ do
         route cleanPostRoute
-        compile $ pandocCompiler
+        compile $ compiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls

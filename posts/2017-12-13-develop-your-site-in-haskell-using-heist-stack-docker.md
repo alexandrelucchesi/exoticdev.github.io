@@ -21,7 +21,7 @@ of technologies through a rationale that goes something like this:
 
 Obviously this is a hypothetic and merely illustrative curve, so don't take it
 seriously (even because I have strong reasons to believe it should be closer to
-$f(x) = k \times e^{x}$ in real life). :wink:
+$f\left(x\right) = k \times e^{x}$ in real life). :wink:
 
 Anyway, the fact is that the metric "how easy it is to build a website with
 technology X" has spread and reached a point where it can no longer be ignored.

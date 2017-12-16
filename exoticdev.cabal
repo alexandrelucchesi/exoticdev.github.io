@@ -21,3 +21,5 @@ executable exoticdev
                      , hakyll
                        -- Custom dependencies
                      , filepath
+                     , pandoc
+                     , containers
