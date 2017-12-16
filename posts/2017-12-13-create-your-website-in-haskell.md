@@ -1,21 +1,25 @@
 ---
-title: "Develop Your Website in Haskell"
+title: "Create Your Website in Haskell"
 lastmod: 2017-12-13
-comments:
 ---
 
-Did you know that it's possible to create a website using Haskell? As incredible
-as it may sound, Haskell is not (only) some obscure programming language, full
-of super abstract concepts and no practical application, used only by crazy
-academics and mathematicians.
+Did you know it's possible to create a website using Haskell? Incredible as it
+may seem, Haskell is not (only) some obscure programming language, full of super
+abstract concepts and no practical application, used only by crazy academics and
+mathematicians.
 
-If those words are obvious and non-sense to you, congratulations, but truth is
-there are many people out there thinking of Haskell as a "limiting language".
+If those words are obvious and non-sense to you, congratulations, but despite
+our claims it's a [full-featured general purpose programming
+language](https://haskell.org), truth is there are many people out there
+thinking of Haskell as a "limited language".
 
-Think about it: we are living cloudy times in computing...
+By "limited language", I mean "unable to develop a 
 
-Nowadays, it's so common to find developers judging the usefulness and relevance
-of technologies through a rationale that goes something like this:
+We are living cloudy times in computing...
+
+Just google it and you'll lack fingers to count  developers judging the
+usefulness and relevance of technologies through a rationale that goes something
+like this:
 
 \[Put the graph in here!\]
 

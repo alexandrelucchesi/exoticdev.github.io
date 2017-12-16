@@ -50,7 +50,7 @@ main = hakyll $ do
             let blogCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Blog" `mappend`
-                    constField "isBlog" "True" `mappend`
+                    boolField "isBlog" (const True) `mappend`
                     cleanCtx
 
             makeItem ""
@@ -65,7 +65,7 @@ main = hakyll $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "isHomePage" "True" `mappend`
+                    boolField "isHomePage" (const True) `mappend`
                     cleanCtx
 
             getResourceBody
@@ -140,13 +140,5 @@ postCtx :: Context String
 postCtx = dateField "date" "%b %e, %Y"
     `mappend` constField "author" "Alexandre Lucchesi"
     `mappend` constField "twitter" "alexandrelucch"
-    `mappend` constField "isBlog" "True"
---    `mappend` commentsField
+    `mappend` boolField "isBlog" (const True)
     `mappend` cleanCtx
---  where
---    commentsField = boolField "comments" $ \item -> do
---        commentsMeta <- getMetadataField (itemIdentifier item) "comments"
---        return $ case commentsMeta of
---          Just "False" -> False
---          _ -> True
-
