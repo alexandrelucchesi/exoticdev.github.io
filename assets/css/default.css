@@ -50,7 +50,18 @@ div#header #navigation a.active {
     font-style: italic;
 }
 
-div.info {
+div#content {
+    padding: 24px 0px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+div#content a {
+    color: #1c84c9;
+    text-decoration: none;
+}
+
+div#content .info {
     color: #888;
     font-size: 14px;
     font-family: Helvetica, sans-serif;
@@ -58,20 +69,14 @@ div.info {
     text-transform: uppercase;
 }
 
-div.info a {
+div#content .info a {
     color: #444;
     text-decoration: none;
 }
 
-div.info a:hover,
-div.info a:focus {
+div#content .info a:hover,
+div#content .info a:focus {
     color: #000;
-}
-
-div#content {
-    padding: 24px 0px;
-    text-align: justify;
-    hyphens: auto;
 }
 
 div#comments {
